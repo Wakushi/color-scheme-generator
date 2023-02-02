@@ -4,6 +4,8 @@ export default function Header(props) {
     return (
         <header>
 
+            <h4 id="clipboard" className="clipboard">Copied to clipboard</h4>
+
             <input onChange={props.handleColor} type="color" id="user-color"></input>
 
             <select className="color-select" onChange={props.handleMode}>

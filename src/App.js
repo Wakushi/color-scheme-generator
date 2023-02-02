@@ -27,11 +27,20 @@ export default function App() {
     })
   }
 
+  
+  function handleCopyHex(e) {
+    navigator.clipboard.writeText(e.target.id)
+    document.getElementById('clipboard').style.transform = 'translateY(20%)'
+    setTimeout(()=>{
+      document.getElementById('clipboard').style.transform = 'translateY(-150%)'
+    },2000)
+  }
+
   const colorElements = userColors.map((color) => {
     return (
-      <div className="color-item">
-        <div key={color.hex.value} style={ {backgroundColor : color.hex.value} } className="unique-color"></div>
-        <h3>{color.hex.value}</h3>
+      <div id={color.hex.value} onClick={handleCopyHex} className="color-item">
+        <div id={color.hex.value} key={color.hex.value} style={ {backgroundColor : color.hex.value} } className="unique-color"></div>
+        <h3 id={color.hex.value}>{color.hex.value}</h3>
       </div>
       
     )
